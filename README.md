@@ -1,9 +1,9 @@
-# 🏫 Database Sekolah
+## 🏫 Database Sekolah
 
 Proyek ini merupakan latihan pembuatan database sederhana untuk manajemen data **siswa** dan **nilai** menggunakan **MySQL**.  
 Tugas ini mencakup pembuatan tabel, relasi, query dasar (SELECT, JOIN, GROUP BY), serta operasi **UPDATE** dan **DELETE**, kemudian dikelola menggunakan **Git** dan **GitHub** sebagai version control.
 
-## 👨‍💻 Identitas
+# 👨‍💻 Identitas
 **Nama:** Aditya Arief Darmawan  
 **NIM:** 2213010450  
 **Kelas:** UI/UX DESAIN  
