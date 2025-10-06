@@ -91,12 +91,3 @@ WHERE nama = 'Budi';
 DELETE FROM nilai
 WHERE siswa_id = 1 AND mata_pelajaran = 'Matematika';
 
--- 6. (Langkah berikut dilakukan di Git)
--- git init
--- git add sekolah.sql
--- git commit -m "Membuat database sekolah dan tabel siswa"
--- git commit -m "Menambahkan data siswa dan nilai"
--- git commit -m "Menambahkan query SELECT, UPDATE, DELETE"
--- git remote add origin https://github.com/username/sekolah-database.git
--- git branch -M main
--- git push -u origin main
