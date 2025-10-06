@@ -1,154 +1,66 @@
-### 🏫 Database Sekolah
+# 🏫 Database Sekolah
+
+Proyek ini merupakan latihan pembuatan database sederhana untuk manajemen data **siswa** dan **nilai** menggunakan **MySQL**.  
+Tugas ini mencakup pembuatan tabel, relasi, query dasar (SELECT, JOIN, GROUP BY), serta operasi **UPDATE** dan **DELETE**, kemudian dikelola menggunakan **Git** dan **GitHub** sebagai version control.
+
+## 👨‍💻 Identitas
+**Nama:** Aditya Arief Darmawan  
+**NIM:** 2213010450  
+**Kelas:** UI/UX DESAIN  
+**Mata Kuliah:** Back-End Development / Basis Data
+---
+
+## 📘 Struktur Database
+
+### 1. Database
+- **Nama:** `sekolah`
+
+### 2. Tabel
+#### 🧑‍🎓 `siswa`
+| Kolom | Tipe Data | Keterangan |
+|-------|------------|-------------|
+| id | INT (PK, AUTO_INCREMENT) | Primary key |
+| nama | VARCHAR(100) | Nama siswa |
+| umur | INT | Umur siswa |
+| jurusan | VARCHAR(50) | Jurusan siswa (IPA/IPS/Bahasa) |
+
+#### 📊 `nilai`
+| Kolom | Tipe Data | Keterangan |
+|-------|------------|-------------|
+| id | INT (PK, AUTO_INCREMENT) | Primary key |
+| siswa_id | INT (FK → siswa.id) | Relasi ke tabel siswa |
+| mata_pelajaran | VARCHAR(100) | Nama mata pelajaran |
+| nilai | INT | Nilai siswa |
 
 ---
 
-### 📌 Deskripsi
-
-Project ini merupakan tugas pembuatan **Database Sekolah** menggunakan **MySQL** yang mencakup pembuatan tabel, relasi, pengisian data, query, serta penggunaan **Git** untuk version control dan upload ke GitHub.
-
----
-
-### 🧱 1. Membuat Database
-
-```sql
-CREATE DATABASE sekolah;
-USE sekolah;
-```
+## 🧱 Relasi
+- **One to Many:**  
+  Satu `siswa` dapat memiliki banyak `nilai`.  
+  Relasi diatur melalui `FOREIGN KEY (siswa_id) REFERENCES siswa(id)`.
 
 ---
 
-### 🧾 2. Membuat Tabel & Relasi
+## 🧩 Contoh Data
 
-#### Tabel `siswa`
-
-```sql
-CREATE TABLE siswa (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  nama VARCHAR(100) NOT NULL,
-  umur INT,
-  jurusan VARCHAR(50)
-);
-```
-
-#### Tabel `nilai`
-
-```sql
-CREATE TABLE nilai (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  siswa_id INT,
-  mata_pelajaran VARCHAR(100),
-  nilai INT,
-  FOREIGN KEY (siswa_id) REFERENCES siswa(id)
-);
-```
+### Tabel `siswa`
+| id | nama | umur | jurusan |
+|----|------|------|---------|
+| 1 | Andi | 16 | IPA |
+| 2 | Budi | 17 | IPS |
+| 3 | Citra | 16 | IPA |
+| 4 | Dewi | 17 | Bahasa |
+| 5 | Eka | 16 | IPS |
+| 6 | Fajar | 17 | IPA |
+| 7 | Gina | 16 | IPS |
+| 8 | Hendra | 17 | IPA |
+| 9 | Indah | 16 | Bahasa |
+| 10 | Joko | 17 | IPS |
 
 ---
 
-### ✏️ 3. Mengisi Data (INSERT)
+## 💾 Query Utama
 
-```sql
-INSERT INTO siswa (nama, umur, jurusan)
-VALUES
-("Andi", 16, "IPA"),
-("Budi", 17, "IPS"),
-("Citra", 16, "IPA"),
-("Dewi", 17, "IPS"),
-("Eka", 16, "IPA");
-
-INSERT INTO nilai (siswa_id, mata_pelajaran, nilai)
-VALUES
-(1, "Matematika", 85),
-(1, "Bahasa Inggris", 90),
-(2, "Matematika", 78),
-(3, "Fisika", 88),
-(4, "Ekonomi", 92),
-(5, "Biologi", 81);
-```
-
----
-
-### 🔍 4. Query Data (SELECT)
-
-#### Menampilkan semua siswa
-
+### 1. Menampilkan semua siswa
 ```sql
 SELECT * FROM siswa;
-```
-
-#### Menampilkan nama siswa dengan jurusan IPA
-
-```sql
-SELECT nama FROM siswa WHERE jurusan = 'IPA';
-```
-
-#### Menampilkan nilai rata-rata tiap siswa
-
-```sql
-SELECT siswa.nama, AVG(nilai.nilai) AS rata_nilai
-FROM siswa
-JOIN nilai ON siswa.id = nilai.siswa_id
-GROUP BY siswa.nama;
-```
-
----
-
-### 🔄 5. Update & Delete
-
-#### Update jurusan salah satu siswa
-
-```sql
-UPDATE siswa SET jurusan = 'Bahasa' WHERE id = 2;
-```
-
-#### Hapus satu data nilai siswa
-
-```sql
-DELETE FROM nilai WHERE id = 1;
-```
-
----
-
-### 🗃️ 6. Version Control dengan Git
-
-```bash
-git init
-git add sekolah.sql
-git commit -m "Membuat database sekolah dan tabel siswa"
-git commit -m "Menambahkan data siswa dan nilai"
-git commit -m "Menambahkan query SELECT, UPDATE, dan DELETE"
-```
-
----
-
-### ☁️ 7. Upload ke GitHub
-
-```bash
-git remote add origin https://github.com/<username>/sekolah-database.git
-git branch -M main
-git push -u origin main
-```
-
----
-
-### ✅ 8. Kriteria Penilaian
-
-* [x] Database dan tabel berhasil dibuat
-* [x] Relasi Primary Key dan Foreign Key diterapkan
-* [x] Data siswa dan nilai minimal 5 record
-* [x] Query `SELECT`, `JOIN`, `GROUP BY` berjalan
-* [x] Operasi `UPDATE` dan `DELETE` berhasil
-* [x] Repository berisi minimal 3 commit
-* [x] Project berhasil dipush ke GitHub
-
----
-
-### 👨‍💻 Pembuat
-
-Nama: **Aditya Arief Darmawan**
-NIM: **2213010450**
-Kelas: **UI/UX DESAIN**
-Mata Kuliah: **Back-End Development / Basis Data**
-
----
-
-Apakah kamu mau saya tambahkan *markdown table* di bagian hasil query (biar lebih menarik di GitHub)?
