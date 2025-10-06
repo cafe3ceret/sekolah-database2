@@ -1,8 +1,6 @@
-Berikut contoh **README.md** yang bisa kamu pakai untuk tugas *Database Sekolah* kamu di GitHub 👇
+### 🏫 Database Sekolah
 
 ---
-
-## 🏫 Database Sekolah
 
 ### 📌 Deskripsi
 
